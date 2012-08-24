@@ -3,6 +3,10 @@ package com.thoughtworks.hp.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
+import android.os.Messenger;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -10,12 +14,16 @@ import android.widget.*;
 import com.thoughtworks.hp.R;
 import com.thoughtworks.hp.adapters.BuyListAdapter;
 import com.thoughtworks.hp.adapters.ProductListAdapter;
+import com.thoughtworks.hp.datastore.ProductTable;
 import com.thoughtworks.hp.models.Product;
 import com.thoughtworks.hp.models.ShoppingList;
 import com.thoughtworks.hp.models.ShoppingListProduct;
 import com.thoughtworks.hp.presenters.ShoppingListPresenter;
+import com.thoughtworks.hp.services.ImageProcessing;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class AddProductActivity extends Activity implements TextWatcher {
@@ -36,6 +44,8 @@ public class AddProductActivity extends Activity implements TextWatcher {
     private TextView distinctProductCountLabel;
     private TextView totalProductUnitCountLabel;
 
+	private ImageCapturer imageCapturer;
+
     @Override
     public void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
@@ -50,10 +60,16 @@ public class AddProductActivity extends Activity implements TextWatcher {
         initAutoSuggestListView();
         refreshProductRelatedUIElements();
         attachSelfAsTextWatcherToSearchBox();
+        bindImageCapturer();
         if(shoppingListScreen.totalDistinctProductsCount() == 0) makeVisible(this.findViewById(R.id.search_product_box));
     }
 
-    private void bindToolBarComponents() {
+    private void bindImageCapturer() {
+			imageCapturer =new ImageCapturer(this, (ImageView) this.findViewById(R.id.capture_button));
+		
+	}
+
+	private void bindToolBarComponents() {
         bindBackButtonOnToolBar();
         bindToggleButtonOnToolBar();
     }
@@ -61,7 +77,7 @@ public class AddProductActivity extends Activity implements TextWatcher {
     private void bindToggleButtonOnToolBar() {
         ImageView backButton = (ImageView) this.findViewById(R.id.add_product_button);
         backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
+            
             public void onClick(View view) {
                 toggleSearchBoxVisibility();
             }
@@ -71,7 +87,6 @@ public class AddProductActivity extends Activity implements TextWatcher {
     private void bindBackButtonOnToolBar() {
         ImageView backButton = (ImageView) this.findViewById(R.id.back_to_shopping_listing_button);
         backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
             public void onClick(View view) {
                 AddProductActivity.this.finish();
             }
@@ -100,10 +115,31 @@ public class AddProductActivity extends Activity implements TextWatcher {
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
-        Product productFromBarcode = barcodeScanner.fetchProductFromBarcodeData(requestCode, resultCode, intent);
-        if(productFromBarcode != null) {
-            addAndPersistProductInShoppingList(productFromBarcode);
-        }
+    	 if(requestCode==49374)
+         {
+         	Product productFromBarcode = barcodeScanner.fetchProductFromBarcodeData(requestCode, resultCode, intent);
+             if(productFromBarcode != null) {
+                 addAndPersistProductInShoppingList(productFromBarcode);
+             }
+         }
+         if(resultCode==RESULT_CANCELED){
+         	resetCompleteView();
+         }
+         
+         if(requestCode==100 && resultCode == RESULT_OK)
+         {
+         	resetCompleteView();
+         	bindImageCapturer();
+         	Intent serviceIntent=new Intent(this,ImageProcessing.class);
+         	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyymmdd");
+     	    String date = dateFormat.format(new Date());
+     	    String filePath = Environment.getExternalStorageDirectory()+"/"+"Picture_" + date + ".jpg";
+ 			serviceIntent.putExtra("filename",filePath);
+ 			serviceIntent.putExtra("handler", new Messenger(this.handler));
+ 			this.startService(serviceIntent);
+         }
+         
+
     }
 
     private void initToBuyListView() {
@@ -129,7 +165,6 @@ public class AddProductActivity extends Activity implements TextWatcher {
         this.autoSuggestListView = (ListView) this.findViewById(R.id.auto_suggest_list);
         autoSuggestListView.setAdapter(this.autoSuggestAdapter);
         autoSuggestListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 Product product = autoSuggestedProductList.get(position);
                 addAndPersistProductInShoppingList(product);
@@ -176,7 +211,6 @@ public class AddProductActivity extends Activity implements TextWatcher {
         ((EditText)this.findViewById(R.id.search_product_box)).addTextChangedListener(this);
     }
 
-    @Override
     public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
         if (charSequence == null || charSequence.length() < 1) return;
 
@@ -193,9 +227,24 @@ public class AddProductActivity extends Activity implements TextWatcher {
         }
     }
 
-    @Override
     public void afterTextChanged(Editable editable) { }
 
-    @Override
     public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) { }
+
+    Handler handler = new Handler(){
+    	@Override
+    	public void handleMessage(Message msg){
+    		String barcodeId= msg.getData().getString("barcodeID");
+    		if(findByBarcodeID(barcodeId)== null) return;
+    		addAndPersistProductInShoppingList(findByBarcodeID(barcodeId));
+    		
+    	}
+    };
+    private Product findByBarcodeID(String barcodeId) {
+    	if(barcodeId == null) return null;
+		Product product = new ProductTable().findByBarcodeId(barcodeId);
+		return product;
+	}
+
+
 }

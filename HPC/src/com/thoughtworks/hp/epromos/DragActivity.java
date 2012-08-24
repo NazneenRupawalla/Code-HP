@@ -49,7 +49,6 @@ public class DragActivity extends Activity implements View.OnLongClickListener, 
 			shoppingCart.setImageDrawable(getResources().getDrawable(R.drawable.list));
 			shoppingCart.setOnClickListener(new OnClickListener() {
 
-				@Override
 				public void onClick(View v) {
 					Intent addItemsToShoppingList = new Intent(DragActivity.this, AddProductActivity.class);
 					addItemsToShoppingList.putExtra(ShoppingList.SHOPPING_LIST_ID, list.getId());

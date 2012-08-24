@@ -37,7 +37,7 @@ public class BarcodeScanner {
 
     private void bindBarcodeScanningTo(ImageView scanButton) {
         scanButton.setOnClickListener(new View.OnClickListener() {
-            @Override
+            
             public void onClick(View view) {
                 scanBarcode();
             }

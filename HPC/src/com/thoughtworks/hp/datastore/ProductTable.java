@@ -9,6 +9,7 @@ import com.thoughtworks.hp.models.Product;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 
 public class ProductTable implements Table<Product> {
 
@@ -110,8 +111,30 @@ public class ProductTable implements Table<Product> {
     }
 
     public Product findByBarcodeId(String barcodeId) {
+    	if(barcodeId == null) return null;
+        
         List<Product> products = findProduct(ProductCursor.BARCODE_ID_QUERY, new String[]{barcodeId});
         return ((products != null && products.size() > 0) ? products.get(0) : null );
     }
+    
+    public List<Product> findByTokens(String completeTokens)
+    {
+    	List<Product> productsHavingSubString;
+    	StringTokenizer tokens = new StringTokenizer(completeTokens, " "); 
+    	productsHavingSubString = findByMatchingName(tokens.nextToken());
+    	while(tokens.hasMoreTokens()) {
+    		String intermediateToken = tokens.nextToken();
+    		for(Product product:productsHavingSubString){
+    			if(!((product.getName()).contains(intermediateToken))){
+    				productsHavingSubString.remove(productsHavingSubString.indexOf(product));
+    				
+    			}
+    		}
+    		
+    	}
+    	return productsHavingSubString;
+    	
+    }
+
 
 }

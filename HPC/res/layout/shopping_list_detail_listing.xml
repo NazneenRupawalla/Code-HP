@@ -67,6 +67,17 @@
                 android:src="@drawable/header_add"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true" />
+        
+           <ImageView
+            android:id="@+id/capture_button"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@+id/shopping_list_detail_toolbar_list_name"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/camera" />
+
+        
     </RelativeLayout>
 
     <EditText android:id="@+id/search_product_box"
