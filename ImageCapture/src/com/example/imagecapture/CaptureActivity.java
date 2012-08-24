@@ -10,7 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
+
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -20,7 +20,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -33,9 +32,6 @@ public class CaptureActivity extends Activity {
 	private Button captureButton;
 	private ImageView imageView;
 	private Bitmap userImage;
-	private String selectedImagePath;
-	private ProgressDialog progressDialog;
-	private String filename;
 	private String photoFile;
 	private String filePath;
 
@@ -90,13 +86,7 @@ public class CaptureActivity extends Activity {
 		
 	}
 	
-	 private File getDir() {
-		    File sdDir = Environment
-		      .getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-		    return new File(sdDir, "CameraAPIDemo");
-		  }
-
-	public String getPath(Uri uri) {
+		public String getPath(Uri uri) {
 		String[] projection = { MediaStore.Images.Media.DATA };
 		Cursor cursor = managedQuery(uri, projection, null, null, null);
 		if (cursor != null) {
