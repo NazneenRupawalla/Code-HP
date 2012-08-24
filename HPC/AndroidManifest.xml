@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.thoughtworks.hp"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk android:minSdkVersion="9"/>
+
+    <application
+        android:name=".HypercityApplication"
+        android:icon="@drawable/hypercity"
+        android:theme="@android:style/Theme.Black.NoTitleBar"
+        android:label="@string/app_name">
+
+        <activity android:name=".activities.AddProductActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".activities.ShoppingListListingActivity" android:screenOrientation="portrait" />
+        <activity android:name=".activities.AddQuantityActivity" android:screenOrientation="portrait" />
+        <activity android:name=".epromos.DragActivity" android:screenOrientation="portrait" />
+        <activity android:name=".HomePage" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".epromos.SelectDealActivity" android:screenOrientation="portrait" />
+    </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+</manifest>

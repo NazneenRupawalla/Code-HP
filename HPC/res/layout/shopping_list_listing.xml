@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        android:id="@+id/outer_wrapper"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout
+            android:id="@+id/widget38"
+            android:layout_width="fill_parent"
+            android:layout_height="46dp"
+            android:background="@drawable/header_gradient_color">
+        <TextView
+                android:id="@+id/shopping_list_name_text"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Lists"
+                android:textColor="#636363"
+                android:gravity="center_horizontal"
+                android:textSize="18sp"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentLeft="true" />
+        <ImageView
+                android:id="@+id/back_to_home_button"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/header_back"
+                android:layout_alignParentLeft="true" />
+        <ImageView
+                android:id="@+id/add_list_button_separator"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:src="@drawable/header_separator"
+                android:layout_toLeftOf="@+id/add_image_button"
+                android:layout_centerVertical="true" />
+        <ImageView
+                android:id="@+id/add_image_button"
+                android:layout_width="wrap_content"
+                android:layout_alignParentTop="@id/back_to_home_button"
+                android:layout_alignParentBottom="@id/back_to_home_button"
+                android:layout_height="30dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/header_add"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true" />
+    </RelativeLayout>
+
+    <LinearLayout android:id="@+id/custom_list_count_title_bar"
+                  android:background="@drawable/custom_title_bar_gradient_color"
+                  android:layout_width="fill_parent"
+                  android:layout_height="25dp"
+    >
+
+        <TextView android:id="@+id/shopping_lists_count_text"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:textColor="#FFFFFF"
+                  android:layout_marginTop="2dp"
+                  android:layout_marginLeft="8dp"
+        />
+    </LinearLayout>
+
+    <ListView android:id="@+id/shopping_list_lists"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:divider="@android:color/transparent"
+              android:drawSelectorOnTop="false"/>
+
+</LinearLayout>
