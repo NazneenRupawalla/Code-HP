@@ -46,6 +46,8 @@ public class AddProductActivity extends Activity implements TextWatcher {
 
 	private ImageCapturer imageCapturer;
 
+	private static int count=0;
+
     @Override
     public void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
@@ -131,9 +133,10 @@ public class AddProductActivity extends Activity implements TextWatcher {
          	resetCompleteView();
          	bindImageCapturer();
          	Intent serviceIntent=new Intent(this,ImageProcessing.class);
-         	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyymmdd");
-     	    String date = dateFormat.format(new Date());
-     	    String filePath = Environment.getExternalStorageDirectory()+"/"+"Picture_" + date + ".jpg";
+//         	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyymmdd");
+//     	    String date = dateFormat.format(new Date());
+         	
+     	    String filePath = Environment.getExternalStorageDirectory()+"/"+"Picture_" + count++ + ".jpg";
  			serviceIntent.putExtra("filename",filePath);
  			serviceIntent.putExtra("handler", new Messenger(this.handler));
  			this.startService(serviceIntent);

@@ -52,7 +52,7 @@ public class ImageProcessing extends IntentService {
 		
 	}
 	@Override
-	protected void onHandleIntent(Intent intent) {
+	protected synchronized void onHandleIntent(Intent intent) {
 		messenger=(Messenger) intent.getExtras().get("handler");
 		String filename = intent.getExtras().getString("filename");
 		compressImage(filename);
