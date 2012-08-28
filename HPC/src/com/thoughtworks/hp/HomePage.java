@@ -23,7 +23,8 @@ public class HomePage extends Activity {
         View dealsButton = this.findViewById(R.id.deals_image_button);
         dealsButton.setOnClickListener(new View.OnClickListener() {
           
-            public void onClick(View view) {
+        	@Override
+        	public void onClick(View view) {
                 Intent promosActivity = new Intent(HomePage.this, SelectDealActivity.class);
                 startActivity(promosActivity);
             }
@@ -35,6 +36,7 @@ public class HomePage extends Activity {
         View shoppingListButton = this.findViewById(R.id.shopping_list_image_button);
         shoppingListButton.setOnClickListener(new View.OnClickListener() {
             
+        	@Override
             public void onClick(View view) {
                 Intent shoppingListActivity = new Intent(HomePage.this, ShoppingListListingActivity.class);
                 startActivity(shoppingListActivity);

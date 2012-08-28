@@ -36,8 +36,9 @@ public class ImageCapturer {
         });
 	}
 	public void takePicture(){
-//        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyymmdd");
-//	    String date = dateFormat.format(new Date());
+//TODO save the image with the dateformat and send it to OnActivity Result
+		//        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyymmdd");
+		//	    String date = dateFormat.format(new Date());
 		
 	    photoFile = "Picture_" + count++ + ".jpg";
 	    File photo=new File(Environment.getExternalStorageDirectory(),photoFile);

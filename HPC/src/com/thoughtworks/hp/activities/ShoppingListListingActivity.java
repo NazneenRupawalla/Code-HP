@@ -42,6 +42,7 @@ public class ShoppingListListingActivity extends Activity {
         View backToHomeButton = this.findViewById(R.id.back_to_home_button);
         backToHomeButton.setOnClickListener(new View.OnClickListener() {
             
+        	@Override
             public void onClick(View view) {
                 ShoppingListListingActivity.this.finish();
             }
@@ -64,7 +65,7 @@ public class ShoppingListListingActivity extends Activity {
         this.shoppingListsListingView = (ListView) this.findViewById(R.id.shopping_list_lists);
         this.shoppingListsListingView.setAdapter(this.shoppingListListingAdapter);
         this.shoppingListsListingView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            
+            @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 long shoppingListId = shoppingLists.get(position).getId();
                 startActivityToAddProductsToShoppingListWith(shoppingListId);
@@ -85,6 +86,7 @@ public class ShoppingListListingActivity extends Activity {
     private void bindEventsToAddNewList() {
         ImageView addNewShoppingListButton = (ImageView) this.findViewById(R.id.add_image_button);
         addNewShoppingListButton.setOnClickListener(new View.OnClickListener() {
+        	@Override
             public void onClick(View view) {
                 showInputDialogForNewShoppingList();
             }
@@ -117,14 +119,16 @@ public class ShoppingListListingActivity extends Activity {
         newShoppingListBox.setView(inputText);
 
         newShoppingListBox.setPositiveButton("Create", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialogInterface, int i) {
+           @Override
+        	public void onClick(DialogInterface dialogInterface, int i) {
                 String shoppingListName = inputText.getText().toString();
                 addNewShoppingListAndRefreshView(shoppingListName);
             }
         });
 
         newShoppingListBox.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialogInterface, int i) {
+            @Override
+        	public void onClick(DialogInterface dialogInterface, int i) {
                 //do nothing
             }
         });

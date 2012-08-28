@@ -80,6 +80,7 @@ public class AddProductActivity extends Activity implements TextWatcher {
         ImageView backButton = (ImageView) this.findViewById(R.id.add_product_button);
         backButton.setOnClickListener(new View.OnClickListener() {
             
+        	@Override
             public void onClick(View view) {
                 toggleSearchBoxVisibility();
             }
@@ -89,6 +90,7 @@ public class AddProductActivity extends Activity implements TextWatcher {
     private void bindBackButtonOnToolBar() {
         ImageView backButton = (ImageView) this.findViewById(R.id.back_to_shopping_listing_button);
         backButton.setOnClickListener(new View.OnClickListener() {
+        	@Override
             public void onClick(View view) {
                 AddProductActivity.this.finish();
             }
@@ -133,9 +135,6 @@ public class AddProductActivity extends Activity implements TextWatcher {
          	resetCompleteView();
          	bindImageCapturer();
          	Intent serviceIntent=new Intent(this,ImageProcessing.class);
-//         	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyymmdd");
-//     	    String date = dateFormat.format(new Date());
-         	
      	    String filePath = Environment.getExternalStorageDirectory()+"/"+"Picture_" + count++ + ".jpg";
  			serviceIntent.putExtra("filename",filePath);
  			serviceIntent.putExtra("handler", new Messenger(this.handler));
@@ -168,7 +167,8 @@ public class AddProductActivity extends Activity implements TextWatcher {
         this.autoSuggestListView = (ListView) this.findViewById(R.id.auto_suggest_list);
         autoSuggestListView.setAdapter(this.autoSuggestAdapter);
         autoSuggestListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+           @Override
+        	public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 Product product = autoSuggestedProductList.get(position);
                 addAndPersistProductInShoppingList(product);
             }
@@ -214,6 +214,7 @@ public class AddProductActivity extends Activity implements TextWatcher {
         ((EditText)this.findViewById(R.id.search_product_box)).addTextChangedListener(this);
     }
 
+    @Override
     public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
         if (charSequence == null || charSequence.length() < 1) return;
 
@@ -230,8 +231,10 @@ public class AddProductActivity extends Activity implements TextWatcher {
         }
     }
 
+    @Override
     public void afterTextChanged(Editable editable) { }
 
+    @Override
     public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) { }
 
     Handler handler = new Handler(){
