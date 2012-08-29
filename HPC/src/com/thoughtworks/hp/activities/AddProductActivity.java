@@ -158,7 +158,7 @@ public class AddProductActivity extends Activity implements TextWatcher {
 
 	private void showMessageToUser(String fileName) {
 		// TODO Auto-generated method stub
-		Toast.makeText(getApplicationContext(), "Identifying "+fileName+"...", Toast.LENGTH_LONG).show();
+		Toast.makeText(getApplicationContext(), "Identifying the product...", Toast.LENGTH_LONG).show();
 
 		
 	}
@@ -260,8 +260,11 @@ public class AddProductActivity extends Activity implements TextWatcher {
     	@Override
     	public void handleMessage(Message msg){
     		String barcodeId= msg.getData().getString("barcodeID");
-    		if(findByBarcodeID(barcodeId)== null) return;
-    		
+    		if(findByBarcodeID(barcodeId)== null)
+    		{
+    			Toast.makeText(getApplicationContext(), "Could not find the matching product", Toast.LENGTH_LONG).show();
+    			return;
+    		}
     		addAndPersistProductInShoppingList(findByBarcodeID(barcodeId));
     		
     	}

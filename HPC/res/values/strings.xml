@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">HyperCity</string>
+    <string name="app_name">HyperCity With Image Recognition</string>
     <string name="web_view_initiator">WebView</string>
     <string name="map_view">MapView</string>
     <string name="no_products">No Products</string>
@@ -12,19 +12,19 @@
         CREATE TABLE SHOPPING_LISTS ( id integer primary key, name String , cost Numeric);
         CREATE TABLE SHOPPING_LIST_PRODUCT_MAPPINGS (shopping_list_id integer, product_id integer, quantity integer, fulfilled integer, PRIMARY KEY (shopping_list_id, product_id));</string>
     <string name="seed_data">
-        insert into products (name, barcode_id, category, price, uom) values(\'Baby Oil\', \'1231\', \'oil\', 50.45, \'1 lt.\');
-        insert into products (name, barcode_id, category, price, uom) values(\'Sunflower Oil\', \'1232\', \'oil\', 150.15, \'1 lt.\');
-        insert into products (name, barcode_id, category, price, uom) values(\'Parle G Biscuits\', \'1233\', \'snacks\', 5.00, \'1 packet\');
-        insert into products (name, barcode_id, category, price, uom) values(\'Tomato Ketchup\', \'1234\', \'snacks\', 45.35, \'1 lt. Bottle\');
-        insert into products (name, barcode_id, category, price, uom) values(\'Chanakyas Chant\', \'9789380658674\', \'oils\', 500.15, \'1 lt. Can\');
-        insert into products (name, barcode_id, category, price, uom) values(\'Perry Sugar\', \'1236\', \'condiments\', 30.00, \'1 kg. packet\');
-        insert into products (name, barcode_id, category, price, uom) values(\'Cleen Tissues\', \'8904064240032\', \'toiletries\', 15.00, \'1 Box\');
-        insert into products (name, barcode_id, category, price, uom) values(\'Ruby Cookbook\', \'9788184041804\', \'book\', 650.00, \'1 Book\');
-        insert into products (name, barcode_id, category, price, uom) values(\'Maggi Atta Noodles\', \'8901058138030\', \'eatable\', 5.00, \'1 Packet\');
-        insert into products (name, barcode_id, category, price, uom) values(\'Maggi Meri Masala\', \'8901058135329\', \'eatable\', 5.00, \'1 Packet\');
-        insert into products (name, barcode_id, category, price, uom) values(\'Camlin Marker Pne\', \'8901234567890\', \'stationary\', 15.00, \'1 Pen\');
-        insert into products (name, barcode_id, category, price, uom) values(\'Dell Laptop\', \'8958135329\', \'laptop\', 500000.00, \'1 Laptop\');
-        insert into products (name, barcode_id, category, price, uom) values(\'Gmat Book\', \'9781405141765\', \'book\', 1500.00, \'1 Book\');</string>
+        insert into products (name, barcode_id, category, price, uom) values(\'Maggi Chotu 40g\', \'8901058135329\', \'snacks\', 5.00, \'1 packet\');
+        insert into products (name, barcode_id, category, price, uom) values(\'Maggi Atta 80g\', \'8901058138030\', \'snacks\', 18.00, \'1 packet\');
+        insert into products (name, barcode_id, category, price, uom) values(\'Twinnings English\', \'7017702570\', \'tea\', 300.00, \'1 bag\');
+        insert into products (name, barcode_id, category, price, uom) values(\'Real Mix Fruit\', \'8901888040350\', \'juices\', 85.00, \'1 ltr.\');
+        insert into products (name, barcode_id, category, price, uom) values(\'Jay Cardamom Chai\', \'8901035051581\', \'tea\', 250.00, \'Box of 100\');
+        insert into products (name, barcode_id, category, price, uom) values(\'Complan\', \'8901542010057\', \'breakfast\', 80.00, \'450g\');
+        insert into products (name, barcode_id, category, price, uom) values(\'Mala MixFruit Jam\', \'8901689010019\', \'snacks\', 82.00, \'500g\');
+        insert into products (name, barcode_id, category, price, uom) values(\'Sanjeevni Honey\', \'8901399093524\', \'snacks\', 42.00, \'150g\');
+        insert into products (name, barcode_id, category, price, uom) values(\'Quaker Oats\', \'8901491103770\', \'breakfast\', 452.00, \'1 kg\');
+        insert into products (name, barcode_id, category, price, uom) values(\'Bournvita\', \'8901233009285\', \'breakfast\', 220.00, \'750g\');
+        insert into products (name, barcode_id, category, price, uom) values(\'Sugar Free Natura\', \'8901120146710\', \'breakfast\', 180.00, \'500g\');
+        insert into products (name, barcode_id, category, price, uom) values(\'Horlicks\', \'8901571001354\', \'breakfast\', 150.00, \'500g\');
+        insert into products (name, barcode_id, category, price, uom) values(\'Glucon D 600g\', \'8901542009389\', \'health\', 60.00, \'600g\');</string>
     <string name="instructions">Drag a promo of your choice to the shopping basket</string>
     <string name="hello">Add an image. Then drag it onto the grid.</string>
 

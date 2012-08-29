@@ -31,8 +31,8 @@ public class ImageProcessor implements Callable {
 		      FileOutputStream fos = new FileOutputStream(pictureFile);
 		      fos.write(bos.toByteArray());
 		      fos.close();
-		       		  final String KEY = "244609ce39874edc8a374a5ec3b3dfce";
-					  final String SECRET = "082bd23345664a20b1776dddc2f1109b";
+		       		  final String KEY = "ffade78f89c247dc913a88836fdcfb35";
+					  final String SECRET = "5c77d8697cee42c38acb43f55c33c5cd";
 						iqe = new com.iqengines.javaiqe.javaiqe(KEY, SECRET);
 						File testFile = new File(filename);
 						com.iqengines.javaiqe.javaiqe.IQEQuery query = iqe.query(testFile);
