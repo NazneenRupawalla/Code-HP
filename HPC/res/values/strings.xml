@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">HyperCity With Image Recognition</string>
+    <string name="app_name">HyperCity IR</string>
     <string name="web_view_initiator">WebView</string>
     <string name="map_view">MapView</string>
     <string name="no_products">No Products</string>
