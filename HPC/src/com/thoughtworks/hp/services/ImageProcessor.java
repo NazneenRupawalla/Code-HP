@@ -11,6 +11,7 @@ import com.iqengines.javaiqe.javaiqe;
 
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
+import android.os.Environment;
 
 public class ImageProcessor implements Callable {
 
@@ -51,7 +52,8 @@ public class ImageProcessor implements Callable {
 						}
 						    
 						}	    	  
-		     
+						testFile.delete();
+						
 		      return barcodeId;
 		
 		

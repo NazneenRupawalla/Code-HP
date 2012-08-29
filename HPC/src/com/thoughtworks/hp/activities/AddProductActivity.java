@@ -1,14 +1,21 @@
 package com.thoughtworks.hp.activities;
 
 import android.app.Activity;
+import android.content.ContentResolver;
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Messenger;
+import android.provider.BaseColumns;
+import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.*;
 import com.thoughtworks.hp.R;
@@ -21,6 +28,7 @@ import com.thoughtworks.hp.models.ShoppingListProduct;
 import com.thoughtworks.hp.presenters.ShoppingListPresenter;
 import com.thoughtworks.hp.services.ImageProcessing;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -132,10 +140,13 @@ public class AddProductActivity extends Activity implements TextWatcher {
          
          if(requestCode==100 && resultCode == RESULT_OK)
          {
+        	 deleteImageFromGallery(getLastImageId());
+        	 String fileName= "Picture_" + count++ + ".jpg";
          	resetCompleteView();
+         	showMessageToUser(fileName);
          	bindImageCapturer();
          	Intent serviceIntent=new Intent(this,ImageProcessing.class);
-     	    String filePath = Environment.getExternalStorageDirectory()+"/"+"Picture_" + count++ + ".jpg";
+     	    String filePath = Environment.getExternalStorageDirectory()+"/"+fileName;
  			serviceIntent.putExtra("filename",filePath);
  			serviceIntent.putExtra("handler", new Messenger(this.handler));
  			this.startService(serviceIntent);
@@ -144,7 +155,15 @@ public class AddProductActivity extends Activity implements TextWatcher {
 
     }
 
-    private void initToBuyListView() {
+
+	private void showMessageToUser(String fileName) {
+		// TODO Auto-generated method stub
+		Toast.makeText(getApplicationContext(), "Identifying "+fileName+"...", Toast.LENGTH_LONG).show();
+
+		
+	}
+
+	private void initToBuyListView() {
         this.toBuyProductList.addAll(shoppingListScreen.shoppingListProducts());
         this.shoppingListProductAdapter = new BuyListAdapter(this, R.layout.product_line_item, toBuyProductList);
         ListView toBuyProductListView = (ListView) this.findViewById(R.id.shopping_list_product_listing);
@@ -242,6 +261,7 @@ public class AddProductActivity extends Activity implements TextWatcher {
     	public void handleMessage(Message msg){
     		String barcodeId= msg.getData().getString("barcodeID");
     		if(findByBarcodeID(barcodeId)== null) return;
+    		
     		addAndPersistProductInShoppingList(findByBarcodeID(barcodeId));
     		
     	}
@@ -251,6 +271,49 @@ public class AddProductActivity extends Activity implements TextWatcher {
 		Product product = new ProductTable().findByBarcodeId(barcodeId);
 		return product;
 	}
+    
+    public void deleteImageFromGallery(String captureimageid){
+    	Cursor c = null;
+    	 Uri u = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+    	 
+    	 getContentResolver().delete(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, BaseColumns._ID+"=?", new String[] {captureimageid});
+    	 
+    	 String[] projection = { MediaStore.Images.ImageColumns.SIZE,
+    	   MediaStore.Images.ImageColumns.DISPLAY_NAME,
+    	   MediaStore.Images.ImageColumns.DATA, BaseColumns._ID, };
+    	 
+    	 Log.i("InfoLog", "on activityresult Uri u " + u.toString());
+    	 
+    	 try {
+    	  if (u != null) {
+    	   c = managedQuery(u, projection, null, null, null);
+    	  }
+    	  if ((c != null) && (c.moveToLast())) {
+    	   ContentResolver cr = getContentResolver();
+    	   int i = cr.delete(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, BaseColumns._ID + "=" + c.getString(3), null);
+    	   //Log.v(TAG, "Number of column deleted : " + i);
+    	  }
+    	 } finally {
+    	  if (c != null) {
+    	   c.close();
+    	  }
+    	 }
+    	}
+    
+    private String getLastImageId(){
+        final String[] imageColumns = { MediaStore.Images.Media._ID };
+        final String imageOrderBy = MediaStore.Images.Media._ID+" DESC";
+        final String imageWhere = null;
+        final String[] imageArguments = null;
+        Cursor imageCursor = managedQuery(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, imageColumns, imageWhere, imageArguments, imageOrderBy);
+        if(imageCursor.moveToFirst()){
+            String id = imageCursor.getString(imageCursor.getColumnIndex(MediaStore.Images.Media._ID));
+            imageCursor.close();
+            return id;
+        }else{
+            return null;
+        }
+    }
 
 
 }
