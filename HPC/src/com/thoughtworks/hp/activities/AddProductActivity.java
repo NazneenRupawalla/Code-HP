@@ -140,8 +140,8 @@ public class AddProductActivity extends Activity implements TextWatcher {
          
          if(requestCode==100 && resultCode == RESULT_OK)
          {
-        	 deleteImageFromGallery(getLastImageId());
-        	 String fileName= "Picture_" + count++ + ".jpg";
+        	deleteImageFromGallery(getLastImageId());
+        	String fileName= "Picture_" + count++ + ".jpg";
          	resetCompleteView();
          	showMessageToUser(fileName);
          	bindImageCapturer();
@@ -178,6 +178,7 @@ public class AddProductActivity extends Activity implements TextWatcher {
     }
 
     private void toggleItemsCompletenessByChangingColor(long position) {
+    	
         shoppingListScreen.toggleCompletenessForItemAt(position);
     }
 
@@ -276,31 +277,13 @@ public class AddProductActivity extends Activity implements TextWatcher {
 	}
     
     public void deleteImageFromGallery(String captureimageid){
-    	Cursor c = null;
     	 Uri u = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
     	 
     	 getContentResolver().delete(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, BaseColumns._ID+"=?", new String[] {captureimageid});
     	 
-    	 String[] projection = { MediaStore.Images.ImageColumns.SIZE,
-    	   MediaStore.Images.ImageColumns.DISPLAY_NAME,
-    	   MediaStore.Images.ImageColumns.DATA, BaseColumns._ID, };
     	 
     	 Log.i("InfoLog", "on activityresult Uri u " + u.toString());
     	 
-    	 try {
-    	  if (u != null) {
-    	   c = managedQuery(u, projection, null, null, null);
-    	  }
-    	  if ((c != null) && (c.moveToLast())) {
-    	   ContentResolver cr = getContentResolver();
-    	   int i = cr.delete(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, BaseColumns._ID + "=" + c.getString(3), null);
-    	   //Log.v(TAG, "Number of column deleted : " + i);
-    	  }
-    	 } finally {
-    	  if (c != null) {
-    	   c.close();
-    	  }
-    	 }
     	}
     
     private String getLastImageId(){
