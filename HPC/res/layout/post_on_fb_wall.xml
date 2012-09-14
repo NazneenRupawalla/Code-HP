@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    
+    android:background="@drawable/home_background_gradient_color"
+    android:orientation="vertical"  >
+
+    <TextView
+        android:id="@+id/header_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="36dp"
+        android:text="@string/header_text"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header_text"
+        android:layout_marginTop="34dp"
+        android:background="@color/black" >
+
+        <TextView
+            android:id="@+id/coupon_explanation"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/header_text"
+            android:layout_marginTop="31dp"
+            android:text="@string/coupon_explanation"
+            android:textColor="@color/white"
+            android:textSize="15dp" />
+
+        <Button
+            android:id="@+id/post_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/coupon_explanation"
+            android:layout_marginLeft="109dp"
+            android:layout_marginTop="21dp"
+            android:text="Share" />
+    </RelativeLayout>
+
+</RelativeLayout>
