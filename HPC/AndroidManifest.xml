@@ -4,32 +4,63 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <uses-sdk android:minSdkVersion="8"/>
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="15" />
 
     <application
         android:name=".HypercityApplication"
         android:icon="@drawable/hypercity"
-        android:theme="@android:style/Theme.Black.NoTitleBar"
-        android:label="@string/app_name">
-		<service android:name="com.thoughtworks.hp.services.ImageProcessing" android:enabled="true"></service>
-        <activity android:name=".activities.AddProductActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".activities.ShoppingListListingActivity" android:screenOrientation="portrait" />
-        <activity android:name=".activities.AddQuantityActivity" android:screenOrientation="portrait" />
-        <activity android:name=".epromos.DragActivity" android:screenOrientation="portrait" />
-        <activity android:name=".HomePage" android:screenOrientation="portrait">
-        
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Black.NoTitleBar" >
+        <service
+            android:name="com.thoughtworks.hp.services.ImageProcessing"
+            android:enabled="true" >
+        </service>
+
+        <activity
+            android:name=".activities.AddProductActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.ShoppingListListingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.AddQuantityActivity"
+            android:screenOrientation="portrait" />
+      
+        <activity
+            android:name=".epromos.DragActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".payment.DiscountCouponSharingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".payment.DeliveryOptions"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".payment.Details"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".payment.PaymentDetails"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HomePage"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            </activity>
-        <activity android:name=".epromos.SelectDealActivity" android:screenOrientation="portrait" />
+        </activity>
+        <activity
+            android:name=".epromos.SelectDealActivity"
+            android:screenOrientation="portrait" />
+        
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    
 
 </manifest>

@@ -49,6 +49,7 @@ public class ShoppingListPresenter {
 
     public String totalShoppingListCostLabel() {
         return Product.INDIAN_CURRENCY_SYMBOL + " " + Double.toString(shoppingList.totalCost());
+        
     }
 
     public void addSelectedProductToShoppingList(Product product) {
