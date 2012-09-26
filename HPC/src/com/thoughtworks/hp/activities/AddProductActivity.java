@@ -69,7 +69,7 @@ public class AddProductActivity extends Activity implements TextWatcher {
 	public void onCreate(Bundle savedInstance) {
 		super.onCreate(savedInstance);
 		setContentView(R.layout.shopping_list_detail_listing);
-		paymentButton = (Button)findViewById(R.id.pay_button);
+		paymentButton = (Button)findViewById(R.id.checkout_button);
 
 		this.shoppingListId = getIntent().getLongExtra(ShoppingList.SHOPPING_LIST_ID, 1);
 		shoppingListScreen = new ShoppingListPresenter(ShoppingList.findById(shoppingListId));

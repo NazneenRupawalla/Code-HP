@@ -61,5 +61,6 @@
     <string name="title_activity_discount_coupon_sharing">DiscountCouponSharingActivity</string>
     <string name="title_activity_delivery_options">DeliveryOptions</string>
     <string name="title_activity_delivery_time_and_date">DeliveryTimeAndDate</string>
+    <string name="name_default_value">Full Name</string>
 
 </resources>
