@@ -22,7 +22,6 @@
             android:textSize="20dp" />
     </RelativeLayout>
 
-    
     <LinearLayout
         android:id="@+id/delivery_items_unit_header"
         android:layout_width="fill_parent"
@@ -30,50 +29,49 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/delivery_modes_detail_toolbar"
         android:background="@drawable/custom_title_bar_gradient_color" >
-        
+
         <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/delivery_modes_detail_toolbar"
-        android:layout_weight="0.13"
-        android:text="Delivery Mode"
-        android:textColor="@color/white" />
-        
-     </LinearLayout>   
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/delivery_modes_detail_toolbar"
+            android:layout_weight="0.13"
+            android:text="Delivery Mode"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
     <LinearLayout
         android:id="@+id/delivery_options_button"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:layout_alignParentLeft="true"
-        android:paddingLeft="10dp"
-        android:layout_below="@+id/delivery_items_unit_header">
-    
-    <ImageView
-        android:id="@+id/home_delivery_button"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@+id/delivery_modes_detail_toolbar"
-        android:layout_centerHorizontal="true"
-        
-        android:layout_weight="0.42"
-        android:src="@drawable/home_delivery"/>
+        android:layout_below="@+id/delivery_items_unit_header"
+        android:paddingLeft="10dp" >
 
-    <ImageView
-        android:id="@+id/store_pickup_button"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-        android:layout_alignParentBottom="true"
-        
-        android:layout_below="@+id/delivery_modes_detail_toolbar"
-        android:layout_centerHorizontal="true"
-        
-        android:layout_weight="0.42"
-        android:src="@drawable/pickup"/>
+        <ImageView
+            android:id="@+id/home_delivery_button"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/delivery_modes_detail_toolbar"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="0.42"
+            android:clickable="true"
+            android:src="@drawable/home_delivery" />
+
+        <ImageView
+            android:id="@+id/store_pickup_button"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/delivery_modes_detail_toolbar"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="0.42"
+            android:clickable="true"
+            android:src="@drawable/pickup" />
     </LinearLayout>
-    
+
     <LinearLayout
         android:id="@+id/delivery_details_unit_header"
         android:layout_width="fill_parent"
@@ -109,8 +107,7 @@
             android:layout_marginTop="14dp"
             android:ems="10"
             android:hint="@string/name_default_value"
-            android:inputType="textPersonName"
-             />
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/address_line_1"
@@ -120,8 +117,8 @@
             android:layout_alignParentRight="true"
             android:layout_below="@+id/name"
             android:ems="10"
-            android:inputType="textPostalAddress"
-            android:text="Address line 1" >
+            android:hint="@string/Address_field_value"
+            android:inputType="textPostalAddress" >
 
             <requestFocus />
         </EditText>
@@ -133,7 +130,7 @@
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/address_line_1"
             android:ems="10"
-            android:text="City" />
+            android:hint="@string/city_field_value" />
 
         <EditText
             android:id="@+id/cell_number"
@@ -142,19 +139,26 @@
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/city"
             android:ems="10"
-            android:text="Mobile Number"
+            android:hint="@string/phone_number_field_value"
             android:inputType="phone" />
 
-      <ImageView
-          android:id="@+id/proceed_button"
-          android:layout_width="200dp"
-          android:layout_height="100dp"
-          android:layout_below="@+id/cell_number"
-          android:layout_centerHorizontal="true"
-          android:layout_weight="0.42"
-          android:paddingLeft="10dp"
-          android:src="@drawable/proceed_payment" />
-
+        <ImageView
+            android:id="@+id/proceed_to_payment_button"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/cell_number"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="0.42"
+            android:paddingLeft="10dp"
+            android:src="@drawable/proceed_payment" />
     </RelativeLayout>
     
+    <RelativeLayout
+        android:id="@+id/store_pickup_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" >
+        </RelativeLayout>
+
 </RelativeLayout>

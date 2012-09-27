@@ -61,7 +61,7 @@
                         android:layout_width="60px"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:inputType="number">
+                        android:inputType="number" >
                     </EditText>
 
                     <ImageButton
@@ -86,7 +86,7 @@
                         android:id="@+id/availability"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                         android:layout_gravity="center"
+                        android:layout_gravity="center"
                         android:text="Store Availability:"
                         android:textSize="20sp" />
 
@@ -95,12 +95,12 @@
                         android:id="@+id/availabilityText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_span="3"
                         android:layout_gravity="center"
+                        android:layout_margin="2dp"
+                        android:layout_span="3"
                         android:text="Available"
                         android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:layout_margin="2dp" />
+                        android:textStyle="bold" />
                 </TableRow>
             </TableLayout>
 

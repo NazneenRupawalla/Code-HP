@@ -27,7 +27,6 @@
         <activity
             android:name=".activities.AddQuantityActivity"
             android:screenOrientation="portrait" />
-      
         <activity
             android:name=".epromos.DragActivity"
             android:screenOrientation="portrait" />
@@ -55,7 +54,6 @@
         <activity
             android:name=".epromos.SelectDealActivity"
             android:screenOrientation="portrait" />
-        
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

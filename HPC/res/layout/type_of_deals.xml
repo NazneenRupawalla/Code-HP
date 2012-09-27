@@ -173,4 +173,5 @@
                 android:text="Sports" />
         </LinearLayout>
     </TableRow>
+
 </TableLayout>

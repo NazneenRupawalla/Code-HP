@@ -1,74 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-        android:id="@+id/shopping_list_details_layout"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        xmlns:android="http://schemas.android.com/apk/res/android">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/shopping_list_details_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
     <RelativeLayout
-            android:id="@+id/shopping_list_detail_toolbar"
-            android:layout_alignParentTop="true"
-            android:layout_width="fill_parent"
-            android:layout_height="46dp"
-            android:background="@drawable/header_gradient_color">
+        android:id="@+id/shopping_list_detail_toolbar"
+        android:layout_width="fill_parent"
+        android:layout_height="46dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/header_gradient_color" >
+
         <ImageView
-                android:id="@+id/back_to_shopping_listing_button"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="5dp"
-                android:src="@drawable/header_back"
-                android:layout_alignParentLeft="true" />
+            android:id="@+id/back_to_shopping_listing_button"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/header_back" />
+
         <ImageView
-                android:id="@+id/toolbar_upc_button_separator"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:src="@drawable/header_separator"
-                android:layout_toLeftOf="@+id/scan_upc_button"
-                android:layout_centerVertical="true" />
+            android:id="@+id/toolbar_upc_button_separator"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/scan_upc_button"
+            android:src="@drawable/header_separator" />
+
         <TextView
-                android:id="@+id/shopping_list_detail_toolbar_list_name"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#636363"
-                android:gravity="center_horizontal"
-                android:textSize="18sp"
-                android:layout_marginTop="10dp"
-                android:layout_toRightOf="@id/back_to_shopping_listing_button"
-                android:layout_toLeftOf="@id/toolbar_upc_button_separator"
-                />
+            android:id="@+id/shopping_list_detail_toolbar_list_name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_toLeftOf="@id/toolbar_upc_button_separator"
+            android:layout_toRightOf="@id/back_to_shopping_listing_button"
+            android:gravity="center_horizontal"
+            android:textColor="#636363"
+            android:textSize="18sp" />
 
         <ImageView
-                android:id="@+id/toolbar_add_button_separator"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:src="@drawable/header_separator"
-                android:layout_toLeftOf="@+id/add_product_button"
-                android:layout_centerVertical="true" />
-        <ImageView
-                android:id="@+id/scan_upc_button"
-                android:layout_width="wrap_content"
-                android:layout_alignParentTop="@id/back_to_shopping_listing_button"
-                android:layout_alignParentBottom="@id/back_to_shopping_listing_button"
-                android:layout_height="30dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-                android:src="@drawable/header_upc"
-                android:layout_toLeftOf="@id/toolbar_add_button_separator"
-                android:layout_centerVertical="true" />
+            android:id="@+id/toolbar_add_button_separator"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/add_product_button"
+            android:src="@drawable/header_separator" />
 
         <ImageView
-                android:id="@+id/add_product_button"
-                android:layout_width="wrap_content"
-                android:layout_alignParentTop="@id/back_to_shopping_listing_button"
-                android:layout_alignParentBottom="@id/back_to_shopping_listing_button"
-                android:layout_height="30dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-                android:src="@drawable/header_add"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true" />
-        
-           <ImageView
+            android:id="@+id/scan_upc_button"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="@id/back_to_shopping_listing_button"
+            android:layout_alignParentTop="@id/back_to_shopping_listing_button"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@id/toolbar_add_button_separator"
+            android:src="@drawable/header_upc" />
+
+        <ImageView
+            android:id="@+id/add_product_button"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="@id/back_to_shopping_listing_button"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="@id/back_to_shopping_listing_button"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/header_add" />
+
+        <ImageView
             android:id="@+id/capture_button"
             android:layout_width="30dp"
             android:layout_height="40dp"
@@ -76,37 +79,35 @@
             android:layout_alignRight="@+id/shopping_list_detail_toolbar_list_name"
             android:layout_marginRight="15dp"
             android:src="@drawable/camera" />
-
-           
-        
     </RelativeLayout>
 
-    <EditText android:id="@+id/search_product_box"
-              android:singleLine="true"
-              android:layout_width="fill_parent"
-              android:layout_marginLeft="5dp"
-              android:layout_marginRight="5dp"
-              android:layout_marginTop="5dp"
-              android:visibility="gone"
-              android:layout_height="wrap_content"
-              android:layout_below="@id/shopping_list_detail_toolbar"
-              android:textSize="18sp"
-              android:hint="e.g. Tomato Ketchup" />
+    <EditText
+        android:id="@+id/search_product_box"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/shopping_list_detail_toolbar"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:hint="e.g. Tomato Ketchup"
+        android:singleLine="true"
+        android:textSize="18sp"
+        android:visibility="gone" />
 
-    <LinearLayout android:id="@+id/list_detail_item_list_count_layout"
-                  android:background="@drawable/custom_title_bar_gradient_color"
-                  android:layout_width="fill_parent"
-                  android:layout_below="@id/search_product_box"
-                  android:layout_height="25dp"
-            >
+    <LinearLayout
+        android:id="@+id/list_detail_item_list_count_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="25dp"
+        android:layout_below="@id/search_product_box"
+        android:background="@drawable/custom_title_bar_gradient_color" >
 
-        <TextView android:id="@+id/list_detail_item_list_count_text"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:textColor="#FFFFFF"
-                  android:layout_marginTop="2dp"
-                  android:layout_marginLeft="8dp"
-                />
+        <TextView
+            android:id="@+id/list_detail_item_list_count_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="2dp"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
     <LinearLayout
@@ -141,30 +142,30 @@
             android:src="@drawable/checkout_btn" />
     </LinearLayout>
 
-    <LinearLayout android:id="@+id/shopping_list_detail_total_item_unit_header"
-                  android:background="@drawable/custom_title_bar_gradient_color"
-                  android:layout_width="fill_parent"
-                  android:layout_above="@id/total_section_layout"
-                  android:layout_height="25dp"
-            >
+    <LinearLayout
+        android:id="@+id/shopping_list_detail_total_item_unit_header"
+        android:layout_width="fill_parent"
+        android:layout_height="25dp"
+        android:layout_above="@id/total_section_layout"
+        android:background="@drawable/custom_title_bar_gradient_color" >
 
-        <TextView android:id="@+id/list_detail_total_item_unit_value"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:textColor="#FFFFFF"
-                  android:layout_marginTop="2dp"
-                  android:layout_marginLeft="8dp"
-                />
+        <TextView
+            android:id="@+id/list_detail_total_item_unit_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="2dp"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
-    <ListView android:id="@+id/shopping_list_product_listing"
-              android:layout_width="fill_parent"
-              android:layout_height="80dp"
-              android:layout_above="@id/shopping_list_detail_total_item_unit_header"
-              android:layout_below="@id/list_detail_item_list_count_layout"
-              android:divider="@android:color/transparent"
-              android:drawSelectorOnTop="false"
-    />
+    <ListView
+        android:id="@+id/shopping_list_product_listing"
+        android:layout_width="fill_parent"
+        android:layout_height="80dp"
+        android:layout_above="@id/shopping_list_detail_total_item_unit_header"
+        android:layout_below="@id/list_detail_item_list_count_layout"
+        android:divider="@android:color/transparent"
+        android:drawSelectorOnTop="false" />
 
     <ListView
         android:id="@+id/auto_suggest_list"

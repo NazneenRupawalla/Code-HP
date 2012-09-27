@@ -34,17 +34,17 @@ public class Details extends Activity implements OnClickListener {
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
-			switch(v.getId())
-			{
-			case R.id.submit:
-				Intent paymentIntent=new Intent(Details.this,PaymentDetails.class);
-				startActivityForResult(paymentIntent,1);
-				break;
-			case R.id.cancel:
-				setResult(RESULT_CANCELED);
-				this.finish();
-				break;
-				
-			}
+//			switch(v.getId())
+//			{
+//			case R.id.submit:
+//				Intent paymentIntent=new Intent(Details.this,PaymentDetails.class);
+//				startActivityForResult(paymentIntent,1);
+//				break;
+//			case R.id.cancel:
+//				setResult(RESULT_CANCELED);
+//				this.finish();
+//				break;
+//				
+//			}
 		}
 }

@@ -1,99 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
- <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-     android:layout_width="fill_parent"
-     android:layout_height="fill_parent"
-     android:layout_centerHorizontal="true"
-     android:background="@drawable/home_background_gradient_color"
-     android:orientation="vertical" >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_centerHorizontal="true"
+    android:background="@drawable/home_background_gradient_color"
+    android:orientation="vertical" >
 
-     <RelativeLayout
-         android:id="@+id/relativeLayout1"
-         android:layout_width="wrap_content"
-         android:layout_height="310dp"
-         android:layout_margin="1dp"
-         android:layout_marginBottom="100dp"
-         android:layout_marginTop="100dp"
-         android:background="@drawable/background_border"
-         android:orientation="vertical" >
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="310dp"
+        android:layout_margin="1dp"
+        android:layout_marginBottom="100dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/background_border"
+        android:orientation="vertical" >
 
-         <RelativeLayout
-             android:id="@+id/relativeLayout2"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:layout_alignParentBottom="true"
-             android:layout_alignParentRight="true"
-             android:layout_margin="1dp"
-             android:background="@drawable/image3" >
+        <RelativeLayout
+            android:id="@+id/relativeLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="1dp"
+            android:background="@drawable/image3" >
 
-             <TimePicker
-                 android:id="@+id/time_value"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_alignParentBottom="true"
-                 android:layout_alignParentRight="true" />
+            <TimePicker
+                android:id="@+id/time_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true" />
 
-             <TextView
-                 android:id="@+id/time"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_above="@+id/time_value"
-                 android:text="Time"
-                 android:textColor="@color/black"
-                 android:textSize="20dp" />
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/time_value"
+                android:text="Time"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
 
-             <Spinner
-                 android:id="@+id/day_value"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_above="@+id/time"
-                 android:layout_alignParentRight="true"
-                 android:layout_marginBottom="19dp"
-                 android:layout_marginRight="18dp"
-                 android:prompt="@string/day_prompt"
-                 android:entries="@array/day_values"           
-                 />
+            <Spinner
+                android:id="@+id/day_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/time"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="19dp"
+                android:layout_marginRight="18dp"
+                android:entries="@array/day_values"
+                android:prompt="@string/day_prompt" />
 
-             <TextView
-                 android:id="@+id/week_day"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_alignTop="@+id/day_value"
-                 android:layout_toLeftOf="@+id/time_value"
-                 android:text="This week"
-                 android:textColor="@color/black"
-                 android:textSize="20dp" />
+            <TextView
+                android:id="@+id/week_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/day_value"
+                android:layout_toLeftOf="@+id/time_value"
+                android:text="This week"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
 
-             <TextView
-                 android:id="@+id/day"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_alignParentLeft="true"
-                 android:layout_alignParentTop="true"
-                 android:layout_marginTop="14dp"
-                 android:text="Choose Day/time for pickup"
-                 android:textAppearance="?android:attr/textAppearanceLarge"
-                 android:textColor="@color/black" />
-         </RelativeLayout>
-     </RelativeLayout>
+            <TextView
+                android:id="@+id/day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="14dp"
+                android:text="Choose Day/time for pickup"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/black" />
+        </RelativeLayout>
+    </RelativeLayout>
 
-     <Button
-         android:id="@+id/cancel"
-         android:layout_width="100dp"
-         android:layout_height="wrap_content"
-         android:layout_alignParentBottom="true"
-         android:layout_alignRight="@+id/relativeLayout1"
-         android:layout_marginBottom="39dp"
-         android:layout_marginRight="23dp"
-         android:text="Cancel" />
+    <Button
+        android:id="@+id/cancel"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/relativeLayout1"
+        android:layout_marginBottom="39dp"
+        android:layout_marginRight="23dp"
+        android:text="Cancel" />
 
-     <Button
-         android:id="@+id/submit"
-         android:layout_width="100dp"
-         android:layout_height="wrap_content"
-         android:layout_alignBaseline="@+id/cancel"
-         android:layout_alignBottom="@+id/cancel"
-         android:layout_alignLeft="@+id/relativeLayout1"
-         android:layout_marginLeft="21dp"
-         android:text="Save" />
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/cancel"
+        android:layout_alignBottom="@+id/cancel"
+        android:layout_alignLeft="@+id/relativeLayout1"
+        android:layout_marginLeft="21dp"
+        android:text="Save" />
 
- </RelativeLayout>
+</RelativeLayout>

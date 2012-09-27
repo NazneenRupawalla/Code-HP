@@ -12,15 +12,17 @@
     <string name="delivery_option2">Home Delivery</string>
     <string name="delivery_header_text">Pick your preferred delivery option</string>
     <string name="day_prompt">Days</string>
+
     <string-array name="day_values">
         <item>Monday</item>
-    <item>Tuesday</item>
-    <item>Wednesday</item>
-    <item>Thursday</item>
-    <item>Friday</item>
-    <item>Saturday</item>
-    <item>Sunday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+        <item>Sunday</item>
     </string-array>
+
     <string name="create_sqls">        DROP TABLE IF EXISTS PRODUCTS;
         DROP TABLE IF EXISTS SHOPPING_LISTS;
         DROP TABLE IF EXISTS SHOPPING_LIST_PRODUCT_MAPPINGS;
@@ -40,7 +42,6 @@
         insert into products (name, barcode_id, category, price, uom) values(\'Sugar Free Natura\', \'8901120146710\', \'breakfast\', 180.00, \'500g\');
         insert into products (name, barcode_id, category, price, uom) values(\'Horlicks\', \'8901571001354\', \'breakfast\', 150.00, \'500g\');
         insert into products (name, barcode_id, category, price, uom) values(\'Glucon D 600g\', \'8901542009389\', \'health\', 60.00, \'600g\');</string>
-        
     <string name="instructions">Drag a promo of your choice to the shopping basket</string>
     <string name="hello">Add an image. Then drag it onto the grid.</string>
 
@@ -62,5 +63,8 @@
     <string name="title_activity_delivery_options">DeliveryOptions</string>
     <string name="title_activity_delivery_time_and_date">DeliveryTimeAndDate</string>
     <string name="name_default_value">Full Name</string>
+    <string name="Address_field_value">Address</string>
+    <string name="city_field_value">City</string>
+    <string name="phone_number_field_value">Mobile Number</string>
 
 </resources>
