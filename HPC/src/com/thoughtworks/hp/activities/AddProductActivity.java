@@ -61,7 +61,7 @@ public class AddProductActivity extends Activity implements TextWatcher {
 
 	private ImageCapturer imageCapturer;
 //TODO disabling the button when the product is not yet identified or the list is empty.
-	private Button paymentButton;
+	private View paymentButton;
 	
 	private static int count=0;
 
@@ -69,7 +69,7 @@ public class AddProductActivity extends Activity implements TextWatcher {
 	public void onCreate(Bundle savedInstance) {
 		super.onCreate(savedInstance);
 		setContentView(R.layout.shopping_list_detail_listing);
-		paymentButton = (Button)findViewById(R.id.checkout_button);
+		paymentButton = this.findViewById(R.id.proceed_to_delivery_modes);
 
 		this.shoppingListId = getIntent().getLongExtra(ShoppingList.SHOPPING_LIST_ID, 1);
 		shoppingListScreen = new ShoppingListPresenter(ShoppingList.findById(shoppingListId));
@@ -234,6 +234,7 @@ public class AddProductActivity extends Activity implements TextWatcher {
 	private void refreshProductRelatedUIElements() {
     	String totalCost=shoppingListScreen.totalShoppingListCostLabel();
         costOfShoppingList = (TextView) findViewById(R.id.total_amount_value_text);
+        costOfShoppingList.setTextColor(getResources().getColor(R.color.black));
         costOfShoppingList.setText(totalCost);
         SharedPreferences settings = getSharedPreferences(ServiceConstants.USER_SHOPPING_CART_DETAILS, 0);
         SharedPreferences.Editor editor = settings.edit();

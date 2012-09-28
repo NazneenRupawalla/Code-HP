@@ -69,7 +69,7 @@
             android:layout_centerHorizontal="true"
             android:layout_weight="0.42"
             android:clickable="true"
-            android:src="@drawable/pickup" />
+            android:src="@drawable/pickup_resource" />
     </LinearLayout>
 
     <LinearLayout
@@ -81,12 +81,16 @@
         android:background="@drawable/custom_title_bar_gradient_color" >
     </LinearLayout>
 
+    
+    
     <RelativeLayout
         android:id="@+id/home_delivery_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true" >
+        android:layout_alignParentTop="true"
+        android:visibility="invisible" >
+        
 
         <TextView
             android:id="@+id/home_delivery_message"
@@ -94,8 +98,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="214dp"
-            android:text="TextView" />
+            android:text="@string/home_delivery_message"
+            android:layout_marginTop="214dp" />
 
         <EditText
             android:id="@+id/name"
@@ -141,24 +145,85 @@
             android:ems="10"
             android:hint="@string/phone_number_field_value"
             android:inputType="phone" />
+        
+         <ImageView
+             android:id="@+id/proceed_to_payment_button"
+             android:layout_width="200dp"
+             android:layout_height="30dp"
+             android:layout_alignParentBottom="true"
+             android:layout_below="@+id/cell_number"
+             android:layout_centerHorizontal="true"
+             android:layout_weight="0.42"
+             android:paddingLeft="10dp"
+             android:src="@drawable/proceed_payment" />
 
-        <ImageView
-            android:id="@+id/proceed_to_payment_button"
-            android:layout_width="200dp"
-            android:layout_height="100dp"
-            android:layout_below="@+id/cell_number"
-            android:layout_centerHorizontal="true"
-            android:layout_weight="0.42"
-            android:paddingLeft="10dp"
-            android:src="@drawable/proceed_payment" />
-    </RelativeLayout>
-    
+          </RelativeLayout>
+
     <RelativeLayout
         android:id="@+id/store_pickup_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true" >
-        </RelativeLayout>
+        android:layout_alignParentTop="true"
+        android:visibility="invisible" >
+
+        <TextView
+            android:id="@+id/store_pickup_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="198dp"
+            android:text="@string/store_pickup_message" />
+
+        <TextView
+            android:id="@+id/day_text_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="When"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/black" />
+
+        <Spinner
+            android:id="@+id/day_values"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/time_picker"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/day_text_message"
+            android:layout_marginRight="14dp"
+            android:entries="@array/day_values"
+            android:prompt="@string/day_prompt" />
+
+        <TextView
+            android:id="@+id/time_text_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/day_text_message"
+            android:layout_below="@+id/day_values"
+            android:layout_marginTop="22dp"
+            android:text="At"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/black" />
+
+        <TimePicker
+            android:id="@+id/time_picker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/day_values" />
+
+        <ImageView
+            android:id="@+id/proceed_to_payment_button1"
+            android:layout_width="200dp"
+            android:layout_height="20dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="0.42"
+            android:layout_below="@+id/time_picker"
+            android:paddingLeft="10dp"
+            android:src="@drawable/proceed_payment" />
+    </RelativeLayout>
 
 </RelativeLayout>

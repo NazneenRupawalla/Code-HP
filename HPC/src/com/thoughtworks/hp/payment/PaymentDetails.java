@@ -12,15 +12,16 @@ import android.widget.TextView;
 import com.thoughtworks.hp.R;
 
 public class PaymentDetails extends Activity implements OnClickListener {
-	 @Override
+	@Override
 	    public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.payment);
-	        TextView paymentAmount=(TextView)findViewById(R.id.pay_amount);
+	        TextView paymentAmount=(TextView)this.findViewById(R.id.amount);
+	        
 	        SharedPreferences settings=getSharedPreferences(ServiceConstants.USER_SHOPPING_CART_DETAILS, 0);
 	        String cost=settings.getString(ServiceConstants.TOTAL_AMOUNT, "0");
 	        paymentAmount.setText(cost);
-	        Button submitButton=(Button)findViewById(R.id.pay_now);
+	        View submitButton=findViewById(R.id.make_payment_button);
 	        submitButton.setOnClickListener(this);
 	        
 	    }

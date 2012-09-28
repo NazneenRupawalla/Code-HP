@@ -16,51 +16,78 @@ public class DeliveryOptions extends Activity {
 	private static final int HOME_DELIVERY=1 ;
 	private static final int STORE_PICKUP=2 ;
 
-    private Button homeDelivery;
+    private View homeDelivery;
 	private RelativeLayout home_delivery_layout;
 	private RelativeLayout store_pickup_layout;
-	private Button inStorePickup;
+	private View inStorePickup;
 	private int delivery_mode;
-	private Button proceedToPayemnt;
+	private View proceedToPaymentHomeDelivery;
+	private TextView fullName;
+	private TextView deliveryMessage;
+	private TextView addressLine;
+	private TextView city;
+	private TextView number;
+	private View proceedToPaymentStorePickUp;
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.delivery_options);
-        inStorePickup=(Button)this.findViewById(R.id.store_pickup_button);
-        homeDelivery=(Button)this.findViewById(R.id.home_delivery_button);
-        proceedToPayemnt=(Button)this.findViewById(R.id.proceed_to_payment_button);
-        home_delivery_layout = (RelativeLayout)findViewById(R.id.home_delivery_layout);
+        inStorePickup=this.findViewById(R.id.store_pickup_button);
+        homeDelivery=this.findViewById(R.id.home_delivery_button);
+        proceedToPaymentHomeDelivery=this.findViewById(R.id.proceed_to_payment_button);
+        proceedToPaymentStorePickUp=this.findViewById(R.id.proceed_to_payment_button);
+        
+         home_delivery_layout = (RelativeLayout)findViewById(R.id.home_delivery_layout);
         store_pickup_layout = (RelativeLayout)findViewById(R.id.store_pickup_layout);
+		deliveryMessage=(TextView)findViewById(R.id.home_delivery_message);
+		fullName = (TextView)findViewById(R.id.name);
+		addressLine = (TextView)findViewById(R.id.address_line_1);
+		city = (TextView)findViewById(R.id.city);
+		number = (TextView)findViewById(R.id.cell_number);
+
         bindHomeDeliveryButton();
         bindStorePickupButton();
-        bindProceedToPayementButton();
+        bindHomeDeliveryProceedToPayementButton();
+        bindStorePickupProceedToPaymentButton();
         
     }
-    private void bindProceedToPayementButton() {
+    private void bindStorePickupProceedToPaymentButton() {
+    	proceedToPaymentStorePickUp.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent=new Intent(DeliveryOptions.this,PaymentDetails.class);
+				startActivityForResult(intent,1);
+			
+			}
+    		
+    	});
+    		
 		// TODO Auto-generated method stub
-    	proceedToPayemnt.setOnClickListener(new View.OnClickListener() {
+		
+	}
+	private void bindHomeDeliveryProceedToPayementButton() {
+		// TODO Auto-generated method stub
+    	proceedToPaymentHomeDelivery.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				if(delivery_mode==HOME_DELIVERY){
+				//if(delivery_mode==HOME_DELIVERY){
 					SharedPreferences settings=getSharedPreferences(ServiceConstants.HOME_DELIVERY_DETAILS, 0);
 					SharedPreferences.Editor editor=settings.edit();
-					TextView fullName = (TextView)findViewById(R.id.name);
-					TextView addressLine = (TextView)findViewById(R.id.address_line_1);
-					TextView city = (TextView)findViewById(R.id.city);
-					TextView number = (TextView)findViewById(R.id.cell_number);
-					
-					editor.putString(ServiceConstants.FULL_NAME, (String) fullName.getText());
-					editor.putString(ServiceConstants.ADDRESS_LINE, (String) addressLine.getText());
-					editor.putString(ServiceConstants.CITY, (String) city.getText());
-					editor.putString(ServiceConstants.NUMBER,(String) number.getText());
-				}
-				if(delivery_mode==STORE_PICKUP){
+					fullName.getText();					
+					editor.putString(ServiceConstants.FULL_NAME, fullName.getText().toString());
+					editor.putString(ServiceConstants.ADDRESS_LINE, addressLine.getText().toString());
+					editor.putString(ServiceConstants.CITY, city.getText().toString());
+					editor.putString(ServiceConstants.NUMBER,number.getText().toString());
+			//	}
+				//if(delivery_mode==STORE_PICKUP){
 					//store details for store pickup options
-				}
+			//	}
 				
 				Intent intent=new Intent(DeliveryOptions.this,PaymentDetails.class);
-				startActivity(intent);
+				startActivityForResult(intent,1);
 				
 			}
 		});
@@ -73,7 +100,8 @@ public class DeliveryOptions extends Activity {
 			public void onClick(View v) {
 				home_delivery_layout.setVisibility(View.VISIBLE);
 				store_pickup_layout.setVisibility(View.GONE);
-				delivery_mode=HOME_DELIVERY;
+				//delivery_mode=HOME_DELIVERY;
+				
 			}
 		});
     }
@@ -86,7 +114,8 @@ public class DeliveryOptions extends Activity {
 			public void onClick(View v) {
 				home_delivery_layout.setVisibility(View.GONE);
 				store_pickup_layout.setVisibility(View.VISIBLE);
-				delivery_mode=STORE_PICKUP;
+				//delivery_mode=STORE_PICKUP;
+			
 						
 			}
 		});

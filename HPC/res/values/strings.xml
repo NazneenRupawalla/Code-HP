@@ -66,5 +66,8 @@
     <string name="Address_field_value">Address</string>
     <string name="city_field_value">City</string>
     <string name="phone_number_field_value">Mobile Number</string>
+    <string name="home_delivery_message">Your order will reach you within 24 hours from the purchase</string>
+    <string name="store_pickup_message">To avoid cancellation,kindly pick up the products with 5 working days</string>
+    
 
 </resources>

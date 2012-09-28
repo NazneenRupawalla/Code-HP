@@ -3,168 +3,134 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:layout_centerHorizontal="true"
-    android:background="@drawable/home_background_gradient_color"
-    android:orientation="vertical" >
+    android:background="@drawable/home_background_gradient_color" >
+
+    <RelativeLayout
+        android:id="@+id/delivery_modes_detail_toolbar"
+        android:layout_width="fill_parent"
+        android:layout_height="46dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/header_gradient_color" >
+
+        <TextView
+            android:id="@+id/payment_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="75dp"
+            android:layout_marginTop="15dp"
+            android:text="PAYMENT INFO"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+    </RelativeLayout>
 
     <TextView
-        android:id="@+id/enter_details"
+        android:id="@+id/payment_amt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="39dp"
-        android:text="Enter Payment Details"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/delivery_modes_detail_toolbar"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="16dp"
+        android:text="Payment amount:"
         android:textColor="@color/black"
-        android:textSize="25dp" />
+        android:textSize="15dp" />
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout1"
+    <TextView
+        android:id="@+id/name_on_card"
         android:layout_width="wrap_content"
-        android:layout_height="70dp"
-        android:layout_below="@+id/enter_details"
-        android:layout_margin="1dp"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/background_border"
-        android:orientation="vertical" >
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/payment_amt"
+        android:layout_below="@+id/payment_amt"
+        android:layout_marginTop="17dp"
+        android:text="Name on card"
+        android:textColor="@color/black" />
+    <EditText
+        android:id="@+id/expiry_date_value"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/expiry_date"
+        android:layout_alignRight="@+id/credit_card_number_value"
+        android:layout_below="@+id/expiry_date"
+        android:ems="10"
+        android:inputType="date" />
 
-        <RelativeLayout
-            android:id="@+id/relativeLayout2"
-            android:layout_width="wrap_content"
-            android:layout_height="70dp"
-            android:layout_alignLeft="@+id/relativeLayout4"
-            android:layout_below="@+id/enter_details"
-            android:layout_margin="1dp"
-            android:layout_marginTop="14dp"
-            android:background="@drawable/image3" >
+    
 
-            <TextView
-                android:id="@+id/pay_amount_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:text="You are paying.. Rs"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@color/black" />
-
-            <TextView
-                android:id="@+id/pay_amount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="32dp"
-                android:layout_toRightOf="@+id/pay_amount_text"
-                android:text="280"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@color/black" />
-        </RelativeLayout>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/relativeLayout3"
+    <TextView
+        android:id="@+id/credit_card_number"
         android:layout_width="wrap_content"
-        android:layout_height="250dp"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/relativeLayout1"
-        android:layout_margin="1dp"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/background_border"
-        android:orientation="vertical" >
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/name_on_card_value"
+        android:layout_below="@+id/name_on_card_value"
+        android:text="Credit card number:"
+        android:textColor="@color/black" />
 
-        <RelativeLayout
-            android:id="@+id/relativeLayout4"
-            android:layout_width="wrap_content"
-            android:layout_height="250dp"
-            android:layout_above="@+id/relativeLayout1"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="1dp"
-            android:layout_marginBottom="64dp"
-            android:background="@drawable/image3" >
+    <EditText
+        android:id="@+id/credit_card_number_value"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/credit_card_number"
+        android:layout_alignRight="@+id/name_on_card_value"
+        android:layout_below="@+id/credit_card_number"
+        android:ems="10"
+        android:inputType="textPersonName" />
 
-            <Button
-                android:id="@+id/pay_now"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:text="Pay Now" />
+    <TextView
+        android:id="@+id/expiry_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/credit_card_number_value"
+        android:layout_below="@+id/credit_card_number_value"
+        android:text="Expiry Date"
+        android:textColor="@color/black" />
+    
+    <EditText
+        android:id="@+id/name_on_card_value"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/name_on_card"
+        android:layout_alignRight="@+id/make_payment_button"
+        android:layout_below="@+id/name_on_card"
+        android:ems="10" />
 
-            <TextView
-                android:id="@+id/name_on_card"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/pay_now"
-                android:layout_alignParentLeft="true"
-                android:layout_marginBottom="18dp"
-                android:text="Name on card"
-                android:textColor="@color/black" />
+    
 
-            <TextView
-                android:id="@+id/expiry_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:text="Expiry Date:"
-                android:textColor="@color/black" />
+    <TextView
+        android:id="@+id/cvv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/expiry_date_value"
+        android:layout_below="@+id/expiry_date_value"
+        android:text="CVV"
+        android:textColor="@color/black" />
 
-            <EditText
-                android:id="@+id/CVV_no_value"
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:layout_alignBottom="@+id/name_on_card"
-                android:layout_alignParentRight="true"
-                android:ems="10"
-                android:inputType="phone" >
+    <EditText
+        android:id="@+id/cvv_value"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/cvv"
+        android:layout_alignRight="@+id/expiry_date_value"
+        android:layout_below="@+id/cvv"
+        android:ems="10"
+        android:inputType="phone" />
 
-                <requestFocus />
-            </EditText>
+    <ImageView
+        android:id="@+id/make_payment_button"
+        android:layout_width="250dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/cvv_value"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="21dp"
+        android:src="@drawable/payment_button_res" />
 
-            <EditText
-                android:id="@+id/name_on_card_value"
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:ems="10"
-                android:inputType="textPersonName" />
-
-            <EditText
-                android:id="@+id/card_no_value"
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:layout_above="@+id/name_on_card_value"
-                android:layout_alignParentRight="true"
-                android:layout_marginBottom="28dp"
-                android:ems="10"
-                android:inputType="phone" />
-
-            <TextView
-                android:id="@+id/CVV_no"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/card_no_value"
-                android:text="CVV no."
-                android:textColor="@color/black" />
-
-            <EditText
-                android:id="@+id/expiry_date_value"
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="16dp"
-                android:ems="10"
-                android:inputType="date" />
-
-            <TextView
-                android:id="@+id/card_no."
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/expiry_date_value"
-                android:layout_alignParentLeft="true"
-                android:text="Enter card no."
-                android:textColor="@color/black" />
-        </RelativeLayout>
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/name_on_card"
+        android:layout_alignRight="@+id/name_on_card_value"
+        android:layout_marginRight="49dp"
+        android:text="450"
+        android:textColor="@color/black" />
 
 </RelativeLayout>
