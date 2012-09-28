@@ -35,7 +35,7 @@ public class DeliveryOptions extends Activity {
         inStorePickup=this.findViewById(R.id.store_pickup_button);
         homeDelivery=this.findViewById(R.id.home_delivery_button);
         proceedToPaymentHomeDelivery=this.findViewById(R.id.proceed_to_payment_button);
-        proceedToPaymentStorePickUp=this.findViewById(R.id.proceed_to_payment_button);
+        proceedToPaymentStorePickUp=this.findViewById(R.id.proceed_to_payment_button1);
         
          home_delivery_layout = (RelativeLayout)findViewById(R.id.home_delivery_layout);
         store_pickup_layout = (RelativeLayout)findViewById(R.id.store_pickup_layout);
