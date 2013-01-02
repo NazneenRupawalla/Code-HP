@@ -3,6 +3,7 @@ package com.thoughtworks.hp.epromos;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -19,7 +20,7 @@ import com.thoughtworks.hp.models.ShoppingList;
 
 import java.util.List;
 
-@SuppressLint({ "ParserError", "ParserError" })
+@SuppressLint({ "ParserError", "ParserError", "ResourceAsColor" })
 public class DragActivity extends Activity implements View.OnLongClickListener, View.OnClickListener, View.OnTouchListener {
 
 	private DragController mDragController;
@@ -59,6 +60,7 @@ public class DragActivity extends Activity implements View.OnLongClickListener, 
 			});
 			TextView textView = new TextView(this);
 			textView.setText(list.getName());
+			textView.setTextColor(Color.BLACK);
 			textView.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
 			tempInstance.addView(shoppingCart, 0);
 			tempInstance.addView(textView, 1);
