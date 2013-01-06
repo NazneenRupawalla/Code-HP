@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">HyperCity IR</string>
+    <string name="app_name">Thrift</string>
     <string name="web_view_initiator">WebView</string>
     <string name="map_view">MapView</string>
     <string name="no_products">No Products</string>
-    <string name="header_text">Thank you for choosing HyperCITY as your preferred mall...</string>
+    <string name="header_text">Thank you for choosing HyperCITY as your preferred mall</string>
     <string name="coupon_explanation">Share your discount coupon and earn cash back points</string>
     <string name="login_message">Please login using Facebook Credentials</string>
     <string name="delivery_option1">In Store Pickup</string>
     <string name="delivery_option2">Home Delivery</string>
     <string name="delivery_header_text">Pick your preferred delivery option</string>
     <string name="day_prompt">Days</string>
+    <string name="loyalty_points_text">Your current loyalty points is </string>
+    <string name="loyalty_points_from_sc_text">Points earned through Social Coupons is </string>
+    <string name="redeem_text">Redeem your points</string>
+    <string name="no_coupons_available">No coupons to download</string>
+    <string name="download_coupons">Download Coupons</string>
+    <string name="loyalty_points_header">Loyalty Points</string>
 
     <string-array name="day_values">
         <item>Monday</item>

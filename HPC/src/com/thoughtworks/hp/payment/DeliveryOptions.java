@@ -1,16 +1,14 @@
 package com.thoughtworks.hp.payment;
 
-import com.thoughtworks.hp.R;
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.view.Menu;
+import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.thoughtworks.hp.R;
 
 public class DeliveryOptions extends Activity {
 	private static final int HOME_DELIVERY=1 ;

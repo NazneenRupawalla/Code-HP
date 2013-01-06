@@ -1,14 +1,14 @@
 package com.thoughtworks.hp;
 
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import com.thoughtworks.hp.activities.ShoppingListListingActivity;
 import com.thoughtworks.hp.epromos.SelectDealActivity;
+import com.tw.activities.HomeActivity;
+import com.tw.backkick.activity.MainPageActivity;
 
 public class HomePage extends Activity {
 
@@ -18,52 +18,72 @@ public class HomePage extends Activity {
 
 		setContentView(R.layout.home_page);
 
-        bindShoppingDealsButton();
-        bindShoppingListButton();
-        
+		bindShoppingDealsButton();
+		bindShoppingListButton();
+		bindBackKicksButton();
+		bindBackKicksScanner();
+
+	}
+
+	private void bindShoppingDealsButton() {
+		View dealsButton = this.findViewById(R.id.deals_image_button);
+		dealsButton.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View view) {
+				Intent promosActivity = new Intent(HomePage.this,
+						SelectDealActivity.class);
+				startActivity(promosActivity);
+			}
+		});
 	}
 	
-//	@Override
-//	protected void onDestroy() {
-//		super.onDestroy();
-//		Intent intent =new Intent(Intent.ACTION_MAIN);
-//		intent.addCategory(Intent.CATEGORY_HOME);
-//		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//		startActivity(intent);
-//	}
+	private void bindBackKicksButton() {
+		View dealsButton = this.findViewById(R.id.backkicks_share_button);
+		dealsButton.setOnClickListener(new View.OnClickListener() {
 
-    private void bindShoppingDealsButton() {
-        View dealsButton = this.findViewById(R.id.deals_image_button);
-        dealsButton.setOnClickListener(new View.OnClickListener() {
-          
-        	@Override
-        	public void onClick(View view) {
-                Intent promosActivity = new Intent(HomePage.this, SelectDealActivity.class);
-                startActivity(promosActivity);
-            }
-        });
-    }
+			@Override
+			public void onClick(View view) {
+				Intent backkicksShare = new Intent(HomePage.this,
+						MainPageActivity.class);
+				startActivity(backkicksShare);
+			}
+		});
+	}
+	
+	private void bindBackKicksScanner() {
+		View dealsButton = this.findViewById(R.id.backkicks_scanner_button);
+		dealsButton.setOnClickListener(new View.OnClickListener() {
 
+			@Override
+			public void onClick(View view) {
+				Intent backkicksShare = new Intent(HomePage.this,
+						HomeActivity.class);
+				startActivity(backkicksShare);
+			}
+		});
+	}
 
-    private void bindShoppingListButton() {
-        View shoppingListButton = this.findViewById(R.id.shopping_list_image_button);
-        shoppingListButton.setOnClickListener(new View.OnClickListener() {
-            
-        	@Override
-            public void onClick(View view) {
-                Intent shoppingListActivity = new Intent(HomePage.this, ShoppingListListingActivity.class);
-                startActivityForResult(shoppingListActivity,3);
-            }
-        });
-    }
-    
-    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
-		if(requestCode==1)
-		{
-			Toast.makeText(HomePage.this, "Posted DiscountCoupon ", Toast.LENGTH_SHORT).show();
-			
-		}
+	private void bindShoppingListButton() {
+		View shoppingListButton = this
+				.findViewById(R.id.shopping_list_image_button);
+		shoppingListButton.setOnClickListener(new View.OnClickListener() {
 
-    }
-    
-}    
+			@Override
+			public void onClick(View view) {
+				Intent shoppingListActivity = new Intent(HomePage.this,
+						ShoppingListListingActivity.class);
+				startActivityForResult(shoppingListActivity, 3);
+			}
+		});
+	}
+
+	public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+		/*
+		 * if(requestCode==1) { Toast.makeText(HomePage.this,
+		 * "Posted DiscountCoupon ", Toast.LENGTH_SHORT).show();
+		 * 
+		 * }
+		 */
+	}
+}

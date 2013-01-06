@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:weightSum="10"
+
+              android:layout_height="fill_parent"
+        >
+    <android.support.v4.view.ViewPager
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="9"
+            android:id="@+id/awesomepager"/>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="horizontal"
+                  android:layout_width="fill_parent"
+                  android:layout_weight="1"
+                  android:layout_height="0dip">
+
+        <ImageButton android:id="@+id/fb_btn"
+                     android:layout_width="0dip"
+                     android:layout_height="fill_parent"
+                     android:layout_weight="1"
+                     android:scaleType="fitCenter"
+                     android:src="@drawable/share"/>
+        <ImageButton android:layout_width="0dip"
+                     android:id="@+id/tweet_btn"
+                     android:layout_height="fill_parent"
+                     android:layout_weight="1"
+                     android:src="@drawable/tweet"
+                     android:scaleType="fitCenter"/>
+    </LinearLayout>
+
+</LinearLayout>
+

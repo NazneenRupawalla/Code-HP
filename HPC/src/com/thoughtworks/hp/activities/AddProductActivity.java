@@ -20,12 +20,12 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.thoughtworks.hp.R;
 import com.thoughtworks.hp.adapters.BuyListAdapter;
 import com.thoughtworks.hp.adapters.ProductListAdapter;
@@ -35,7 +35,6 @@ import com.thoughtworks.hp.models.ShoppingList;
 import com.thoughtworks.hp.models.ShoppingListProduct;
 import com.thoughtworks.hp.payment.DeliveryOptions;
 import com.thoughtworks.hp.payment.ServiceConstants;
-
 import com.thoughtworks.hp.presenters.ShoppingListPresenter;
 import com.thoughtworks.hp.services.ImageProcessing;
 
